@@ -1,0 +1,5 @@
+Operation, operand1, operand2, Result
+Add, 10, 0, 10
+Subtract, 10, 0, 10
+Multiply, 10, 0, 0
+Divide, 10, 0, Divison By Zero
