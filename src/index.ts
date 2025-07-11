@@ -8,8 +8,8 @@ const rl = readline.createInterface({
     output : process.stdout
 });
 
-rl.question('Enter first Number : ',(n1)=>{
-    rl.question('Enter second Number : ',(n2)=>{
+rl.question('Enter first Number : ',(n1:string)=>{
+    rl.question('Enter second Number : ',(n2:string)=>{
         const num1 = parseInt(n1);
         const num2 = parseInt(n2);
 
