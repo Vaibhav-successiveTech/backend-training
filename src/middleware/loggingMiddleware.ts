@@ -1,12 +1,15 @@
 import {NextFunction, Request,Response} from 'express';
 
 const loggingMiddelware = (req:Request,res:Response,next:NextFunction) =>{
-    const url = req.url;
+    const url = req.originalUrl;
     const method = req.method;
-    const timeStr = String(req.headers['x-request-time']);
-    const time = new Date(timeStr).getTime();
+    const time = new Date().toLocaleTimeString();
+    const protocol = req.protocol;
+    const host = req.host;
+
     console.log(
-        'url:', url , '\n',
+        '\n',
+        'url:', `${protocol}://${host}${url}` , '\n',
         'method:', method , '\n',
         'time:', time , '\n',
     )

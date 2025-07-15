@@ -1,0 +1,30 @@
+import { NextFunction, Request, Response } from "express";
+
+let obj = { cnt: 0 };
+
+const limitMiddleware = (req: Request, res: Response, next: NextFunction) => {
+
+    const limitOfRequest = Number(req.params.id);
+
+    obj.cnt += 1;
+
+    if (obj.cnt > limitOfRequest) {
+
+        setTimeout(() => {
+            obj.cnt = 0;
+            console.log('cnt is zero');
+        }, 2000);
+
+        res.status(401).send(`limit reached ${obj.cnt}`);
+
+        return;
+    }
+
+    if (!req.body) req.body = {};
+
+    req.body.limit = obj.cnt;
+
+    next();
+}
+
+export { limitMiddleware };
