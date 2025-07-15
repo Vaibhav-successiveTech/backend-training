@@ -1,6 +1,6 @@
 import zod from 'zod';
 
-import { Request, Response, NextFunction } from 'express';
+import {Request,Response,NextFunction} from 'express'
 
 
 const reqSchema = zod.object({

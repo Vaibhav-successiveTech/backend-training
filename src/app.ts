@@ -1,10 +1,10 @@
 const express = require('express');
 const app = express();
-import { validateUser } from "./middleware";
-import { RegistrationMiddleware } from "./FormValidation";
+import { validateUser } from "./middleware/middleware";
+import { RegistrationMiddleware } from "./middleware/FormValidation";
 import { Request, Response } from 'express';
-import { validateQueryParam } from "./routeValidation";
-import { validateLocation } from "./validateLocation";
+import { validateQueryParam } from "./middleware/routeValidation";
+import { validateLocation } from "./middleware/validateLocation";
 
 app.use(express.json());
 //app.use(validateUser);

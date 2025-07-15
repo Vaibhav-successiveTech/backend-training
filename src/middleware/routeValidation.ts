@@ -6,7 +6,9 @@ const validateQueryParam = (req:Request,res:Response,next : NextFunction) =>{
         res.status(400).json({
             message : 'Invalid Params'
         })
-    }else next();
+        return;
+    }
+    next();
 }
 
 
