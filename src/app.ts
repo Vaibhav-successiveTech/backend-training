@@ -31,7 +31,7 @@ app.get('/middlewareChaining',middleware1,middleware2,middlewareChainingHandler)
 
 app.get('/customMiddleware',customMiddleware,customMiddlewareHandler);
 
-app.get('/limitMiddleware/:id',limitMiddleware,limitMiddlewareHandler);
+app.get('/limitMiddleware/',limitMiddleware,limitMiddlewareHandler);
 
 app.get('/errorHandler',errorMiddlewareHandler);
 

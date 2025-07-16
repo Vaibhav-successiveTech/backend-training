@@ -4,7 +4,7 @@ let obj = { cnt: 0 };
 
 const limitMiddleware = (req: Request, res: Response, next: NextFunction) => {
 
-    const limitOfRequest = Number(req.params.id);
+    const limitOfRequest = 3;
 
     obj.cnt += 1;
 
