@@ -7,6 +7,10 @@ const validateLocation = async (req:Request,res:Response, next : NextFunction)=>
     try{
         
         const response = await axios.get(`http://ip-api.com/json/${location}`);
+        if(response.data.country != 'India'){
+            res.status(400).send('Unauthorized Location');
+            return;
+        }
         req.headers.locationdata = response.data;
         next();
 
