@@ -1,8 +1,8 @@
 const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const ListController = require('./controller/list');
-const ListService = require('./services/list');
+import {Request, Response} from 'express';
+import mongoose from 'mongoose';
+import ListController from './controller/list';
+import ListService from "./services/list";
 
 
 const app = express();
@@ -15,6 +15,6 @@ db.once('open', () => console.log('MongoDB connected'));
 
 app.post('/db/list', ListService,ListController);
 
-app.listen(3003, () => {
-    console.log('server listening on https://localhost:3003');
+app.listen(3031, () => {
+    console.log('server listening on https://localhost:3031');
 });

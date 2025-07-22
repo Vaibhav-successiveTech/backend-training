@@ -1,4 +1,6 @@
-const ListController = (req, res) => {
+import {Request, Response} from "express";
+
+const ListController = (req:Request, res:Response) => {
     const result = req.body.result;
     if (!result) {
         res.status(500).json({
@@ -9,4 +11,4 @@ const ListController = (req, res) => {
     res.status(200).send(result);
 }
 
-module.exports = ListController;
+export default ListController;
