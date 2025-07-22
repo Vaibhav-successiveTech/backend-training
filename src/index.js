@@ -1,23 +1,20 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const ListController = require('./controller/list');
+const ListService = require('./services/list');
 
-const User = require('./models/user');
 
 const app = express();
-app.use(bodyParser.json());
+app.use(express.json());
 
 mongoose.connect('mongodb://localhost:27017/successive-db');
 const db = mongoose.connection;
 
 db.once('open', () => console.log('MongoDB connected'));
 
-app.post('/user', async (req, res) => {
-    const newUser = new User(req.body);
-    const result = await newUser.save();
-    res.send(result);
-})
+app.post('/db/list', ListService,ListController);
 
-app.listen(3001, () => {
-    console.log('server listening on https://localhost:3001');
+app.listen(3003, () => {
+    console.log('server listening on https://localhost:3003');
 });
