@@ -1,14 +1,17 @@
-import {Request, Response} from "express";
+import { Request, Response } from "express";
 
-const ListController = (req:Request, res:Response) => {
-    const result = req.body.result;
-    if (!result) {
-        res.status(500).json({
-            message: req.body.err
-        })
-        return;
+class ListControllerClass {
+    ListController = (req: Request, res: Response) => {
+        const result = req.body.result;
+        if (!result) {
+            res.status(500).json({
+                message: req.body.err
+            })
+            return;
+        }
+        res.status(200).send(result);
     }
-    res.status(200).send(result);
 }
+const ListControllerObject = new ListControllerClass();
 
-export default ListController;
+export default ListControllerObject;
