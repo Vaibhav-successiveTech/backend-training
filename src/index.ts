@@ -15,6 +15,6 @@ db.once('open', () => console.log('MongoDB connected'));
 
 app.post('/db/list', ListServiceObject.ListService,ListControllerObject.ListController);
 
-app.listen(3031, () => {
-    console.log('server listening on https://localhost:3031');
+app.listen(3032, () => {
+    console.log('server listening on https://localhost:3032');
 });
