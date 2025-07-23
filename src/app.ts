@@ -3,7 +3,8 @@ import AllRouter from './routes/Allroutes';
 const app = express();
 app.use(express.json());
 
-app.use('/Day5',AllRouter);
+ app.use('/Day5',AllRouter);
+
 
 app.use((err : Error,req:Request,res:Response,next:NextFunction)=>{
     res.status(400).json({
@@ -11,7 +12,7 @@ app.use((err : Error,req:Request,res:Response,next:NextFunction)=>{
     })
 });
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8080;
 app.listen(PORT,()=>{
     console.log(`Server Listening on https://localhost:${PORT}`);
 });
