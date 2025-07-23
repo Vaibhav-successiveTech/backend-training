@@ -1,41 +1,41 @@
 const express = require('express');
 const app = express();
-import { validateUser } from "./middleware/middleware";
-import { RegistrationMiddleware } from "./middleware/FormValidation";
+import { validateUserObject } from "./middleware/middleware";
+import { RegistrationMiddlewareObject } from "./middleware/FormValidation";
 import { Request, Response } from 'express';
-import { validateQueryParam } from "./middleware/routeValidation";
-import { validateLocation } from "./middleware/validateLocation";
-import { dynamicValidationMiddleware } from "./middleware/dynamicValidation";
+import { validateParamsObject } from "./middleware/routeValidation";
+import { validateLocationObject } from "./middleware/validateLocation";
+import { dynamicValidationMiddlewareObject } from "./middleware/dynamicValidation";
 
 app.use(express.json());
 //app.use(validateUser);
 
 
-app.post('/api/form', RegistrationMiddleware, (req: Request, res: Response) => {
+app.post('/api/form', RegistrationMiddlewareObject.RegistrationMiddleware, (req: Request, res: Response) => {
     res.json({
         message: 'User Authorised',
         data: req.body
     });
 });
 
-app.get('/:id', validateQueryParam, (req: Request, res: Response) => {
+app.get('/:id', validateParamsObject.validateQueryParam, (req: Request, res: Response) => {
     res.status(200).json({ params: req.params.id })
 });
 
-app.get('/api/location', validateLocation, (req: Request, res: Response) => {
+app.get('/api/location', validateLocationObject.validateLocation, (req: Request, res: Response) => {
     res.status(200).json({
         location: req.headers.locationdata
     })
 })
 
-app.get('/api/user',dynamicValidationMiddleware,(req:Request,res:Response)=>{
+app.get('/api/user',dynamicValidationMiddlewareObject.dynamicValidationMiddleware,(req:Request,res:Response)=>{
     res.status(200).json({
         message : 'valid user',
         info : req.body
     })
 })
 
-app.get('/api/product',dynamicValidationMiddleware,(req:Request,res:Response)=>{
+app.get('/api/product',dynamicValidationMiddlewareObject.dynamicValidationMiddleware,(req:Request,res:Response)=>{
     res.status(200).json({
         message : 'valid product',
         info : req.body

@@ -19,23 +19,27 @@ const emailCheck = (email: string): boolean => {
     return emailSchema.safeParse(email).success;
 }
 
-const RegistrationMiddleware = (req: Request, res: Response, next: NextFunction) => {
-    const { name, age, zipCode, email } = req.body;
-    console.log('inside middleware');
-    if (!name || !age || !zipCode || !email) {
-        return res.status(400).json({
-            message: 'Missing feild'
-        });
-    }
+class RegistrationMiddlewareClass {
+    RegistrationMiddleware = (req: Request, res: Response, next: NextFunction) => {
+        const { name, age, zipCode, email } = req.body;
+        console.log('inside middleware');
+        if (!name || !age || !zipCode || !email) {
+            return res.status(400).json({
+                message: 'Missing feild'
+            });
+        }
 
-    if (!(nameCheck(name) && ageCheck(age) && zipCodeCheck(zipCode) && emailCheck(email))) {
-        return res.status(401).json({
-            message: 'Incorrect Input'
-        })
-    }
+        if (!(nameCheck(name) && ageCheck(age) && zipCodeCheck(zipCode) && emailCheck(email))) {
+            return res.status(401).json({
+                message: 'Incorrect Input'
+            })
+        }
 
-    next();
+        next();
+
+    }
 
 }
 
-export { RegistrationMiddleware };
+const RegistrationMiddlewareObject = new RegistrationMiddlewareClass();
+export { RegistrationMiddlewareObject };

@@ -1,15 +1,17 @@
-import {Request,Response,NextFunction} from 'express';
+import { Request, Response, NextFunction } from 'express';
 
-const validateQueryParam = (req:Request,res:Response,next : NextFunction) =>{
-    const {id} = req.params;
-    if(isNaN(Number(id))){
-        res.status(400).json({
-            message : 'Invalid Params'
-        })
-        return;
+class validateQueryParamClass {
+    validateQueryParam = (req: Request, res: Response, next: NextFunction) => {
+        const { id } = req.params;
+        if (isNaN(Number(id))) {
+            res.status(400).json({
+                message: 'Invalid Params'
+            })
+            return;
+        }
+        next();
     }
-    next();
 }
 
-
-export {validateQueryParam};
+const validateParamsObject = new validateQueryParamClass();
+export { validateParamsObject };
