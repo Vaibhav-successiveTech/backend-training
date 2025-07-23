@@ -1,16 +1,10 @@
-import { Request,Response } from "express";
+import { Router } from "express";
+import {VerifyUserMiddlewareObject} from '../middleware/UserJWTMiddleware'
+import { SignInUserHandlerObject, VerifyUserHandlerObject } from "../controllers/UserController";
 
-const SignInUserHandler = (req:Request,res:Response)=>{
-    res.status(201).json({
-        token : req.body.token
-    });
-}
+const UserRouter = Router();
+UserRouter.post('/AddUser',VerifyUserMiddlewareObject.SignInUser,SignInUserHandlerObject.SignInUserHandler);
 
-const VerifyUserHandler = (req:Request,res:Response)=>{
-    res.status(200).json({
-        status : 'User Authorized',
-        data : req.body.userData
-    })
-}
+UserRouter.post('/VerifyUser',VerifyUserMiddlewareObject.VerifyUser,VerifyUserHandlerObject.VerifyUserHandler);
 
-export {SignInUserHandler,VerifyUserHandler};
+export {UserRouter};

@@ -1,42 +1,29 @@
-import { Request, Response, NextFunction } from "express";
+import { Router } from "express"
+import { customMiddlewareObject } from "../middleware/customMiddleware";
+import { AddStrigHandlerObject, customMiddlewareHandlerObject, dataSeedingControllerObject, limitMiddlewareHandlerObject, loggingMiddelwareHandlerObject, middlewareChainingHandlerObject, VerifyStringHandlerObject } from "../controllers/OtherController";
+import { SignStringMiddlewareObject, VerifyStringMiddlewareObject } from "../middleware/dummyJWT";
+import { limitMiddlewareObject } from "../middleware/limitMiddleware";
+import { loggingMiddelwareObject } from "../middleware/loggingMiddleware";
+import { middlewareChainingObject } from "../middleware/middlewareChaining";
 
-const AddStrigHandler = (req: Request, res: Response) => {
-    res.status(200).json({
-        token: req.body.token
-    });
-}
+const customMiddlewareRouter = Router();
+customMiddlewareRouter.get('/customMiddleware', customMiddlewareObject.customMiddleware, customMiddlewareHandlerObject.customMiddlewareHandler);
 
-const VerifyStringHandler = (req: Request, res: Response) => {
-    res.status(200).json({
-        string: req.body.stringData
-    });
-}
+const dummyMiddlewareRouter = Router();
+dummyMiddlewareRouter.post('/AddString', SignStringMiddlewareObject.SignStringMiddleware, AddStrigHandlerObject.AddStrigHandler);
+dummyMiddlewareRouter.post('/VerifyString', VerifyStringMiddlewareObject.VerifyStringMiddleware, VerifyStringHandlerObject.VerifyStringHandler);
 
-const loggingMiddelwareHandler = (req: Request, res: Response) => {
-    res.status(200).send('Consoled URL,method and timeStamp');
-}
+const limitMiddlewareRouter = Router();
+limitMiddlewareRouter.get('/limitMiddleware/', limitMiddlewareObject.limitMiddleware, limitMiddlewareHandlerObject.limitMiddlewareHandler);
 
-const middlewareChainingHandler = (req: Request, res: Response) => {
-    res.status(200).json({
-        message1: req.body.middleware1,
-        message2: req.body.middleware2,
-    });
-}
+const loggingMiddelwareRouter = Router();
+loggingMiddelwareRouter.get('/logging', loggingMiddelwareObject.loggingMiddelware, loggingMiddelwareHandlerObject.loggingMiddelwareHandler);
 
-const customMiddlewareHandler = (req: Request, res: Response) => {
-    res.status(200).send(req.headers);
-}
+const middlewareChainingRouter = Router();
+middlewareChainingRouter.get('/middlewareChaining', middlewareChainingObject.middleware1, middlewareChainingObject.middleware2, middlewareChainingHandlerObject.middlewareChainingHandler);
 
-const limitMiddlewareHandler = (req: Request, res: Response) => {
-    res.status(200).send(`Request Fullfilled ${req.body.limit}`);
-}
+const dataSeedingRouter = Router();
+dataSeedingRouter.post('/Data-Seeding/:id', dataSeedingControllerObject.dataSeedingController);
 
-const errorMiddlewareHandler = (req: Request, res: Response, next: NextFunction) => {
-    try {
-        throw new Error('Error Occured in routes');
-    } catch (err) {
-        next(err);
-    }
-}
 
-export { AddStrigHandler, VerifyStringHandler, loggingMiddelwareHandler, middlewareChainingHandler, customMiddlewareHandler, limitMiddlewareHandler, errorMiddlewareHandler };
+export { dataSeedingRouter, middlewareChainingRouter, loggingMiddelwareRouter, limitMiddlewareRouter, dummyMiddlewareRouter, customMiddlewareRouter }

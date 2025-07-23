@@ -1,19 +1,22 @@
-import {NextFunction, Request,Response} from 'express';
+import { NextFunction, Request, Response } from 'express';
 
-const loggingMiddelware = (req:Request,res:Response,next:NextFunction) =>{
-    const url = req.originalUrl;
-    const method = req.method;
-    const time = new Date().toLocaleTimeString();
-    const protocol = req.protocol;
-    const host = req.host;
+class loggingMiddelwareClass {
+    loggingMiddelware = (req: Request, res: Response, next: NextFunction) => {
+        const url = req.originalUrl;
+        const method = req.method;
+        const time = new Date().toLocaleTimeString();
+        const protocol = req.protocol;
+        const host = req.host;
 
-    console.log(
-        '\n',
-        'url:', `${protocol}://${host}${url}` , '\n',
-        'method:', method , '\n',
-        'time:', time , '\n',
-    )
-    next();
+        console.log(
+            '\n',
+            'url:', `${protocol}://${host}${url}`, '\n',
+            'method:', method, '\n',
+            'time:', time, '\n',
+        )
+        next();
+    }
 }
 
-export {loggingMiddelware};
+const loggingMiddelwareObject = new loggingMiddelwareClass();
+export { loggingMiddelwareObject };

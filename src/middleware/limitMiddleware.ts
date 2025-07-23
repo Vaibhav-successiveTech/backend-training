@@ -2,29 +2,33 @@ import { NextFunction, Request, Response } from "express";
 
 let obj = { cnt: 0 };
 
-const limitMiddleware = (req: Request, res: Response, next: NextFunction) => {
+class limitMiddlewareClass {
+    limitMiddleware = (req: Request, res: Response, next: NextFunction) => {
 
-    const limitOfRequest = 3;
+        const limitOfRequest = 3;
 
-    obj.cnt += 1;
+        obj.cnt += 1;
 
-    if (obj.cnt > limitOfRequest) {
+        if (obj.cnt > limitOfRequest) {
 
-        setTimeout(() => {
-            obj.cnt = 0;
-            console.log('cnt is zero');
-        }, 2000);
+            setTimeout(() => {
+                obj.cnt = 0;
+                console.log('cnt is zero');
+            }, 2000);
 
-        res.status(401).send(`limit reached ${obj.cnt}`);
+            res.status(401).send(`limit reached ${obj.cnt}`);
 
-        return;
+            return;
+        }
+
+        if (!req.body) req.body = {};
+
+        req.body.limit = obj.cnt;
+
+        next();
     }
-
-    if (!req.body) req.body = {};
-
-    req.body.limit = obj.cnt;
-
-    next();
 }
 
-export { limitMiddleware };
+const limitMiddlewareObject = new limitMiddlewareClass();
+
+export { limitMiddlewareObject };
