@@ -8,6 +8,6 @@ const AllRouter = Router();
 AllRouter.use(asyncRouter);
 AllRouter.use(validateParamsRouter);
 AllRouter.use(errorRouter);
- AllRouter.use(errorCodeRouter);
+AllRouter.use(errorCodeRouter);
 
 export default AllRouter;

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import AsyncErrorHandler from "../middleware/asyncMiddleware";
+import AsyncErrorHandlerObject from "../middleware/asyncMiddleware";
 const asyncRouter = Router();
-asyncRouter.get('/async',AsyncErrorHandler);
+asyncRouter.get('/async',AsyncErrorHandlerObject.AsyncErrorHandler);
 export default asyncRouter;
