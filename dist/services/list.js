@@ -10,12 +10,18 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const list_1 = require("../models/list");
-const ListService = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    const newList = new list_1.default(req.body);
-    console.log(newList);
-    const result = yield newList.save();
-    console.log(result);
-    req.body.result = result;
-    next();
-});
-exports.default = ListService;
+const countryList = ['India', 'USA', 'Brazil', 'Japan'];
+class ListServiceClass {
+    constructor() {
+        this.ListService = (req, res, next) => __awaiter(this, void 0, void 0, function* () {
+            const newList = new list_1.default({ sportsList: countryList });
+            console.log(newList);
+            const result = yield newList.save();
+            req.body = {};
+            req.body.result = result;
+            next();
+        });
+    }
+}
+const ListServiceObject = new ListServiceClass();
+exports.default = ListServiceObject;
