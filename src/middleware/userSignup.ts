@@ -8,6 +8,7 @@ const UserSignupSchema = zod.object({
     userName : zod.string(),
     email : zod.string().email(),
     password : zod.string().regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]+$/,'Password Should contain lowercase,uppercase and numbers'),
+    profile : zod.string()
 })
 
 class UserSignupMiddlewareClass {
@@ -17,13 +18,14 @@ class UserSignupMiddlewareClass {
             next(createError(400,result.error));
             return;
         }
-        const {userName,email,password} = req.body;
+        const {userName,email,password,profile} = req.body;
         const hashedPassword = await bcrypt.hash(password,10);
-        const newUser = new User({userName,email,hashedPassword});
+        const newUser = new User({userName,email,hashedPassword,profile});
         const dbResult = await newUser.save();
         req.body.result = {};
         req.body.result['userName']= dbResult.userName
         req.body.result['email']= dbResult.email
+        req.body.result['profile']= dbResult.profile
         next();
     }   
 }

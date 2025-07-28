@@ -6,7 +6,8 @@ import createError from 'http-errors';
 
 const UserLoginSchema = zod.object({
     userName : zod.string(),
-    password : zod.string()
+    password : zod.string(),
+    profile : zod.string()
 });
 
 class UserLoginMiddlewwareClass{
@@ -17,8 +18,8 @@ class UserLoginMiddlewwareClass{
             next(createError(400,result.error));
         }
         try{
-            const {userName,password} = req.body;
-            const dbResult = await User.findOne({userName});
+            const {userName,password,profile} = req.body;
+            const dbResult = await User.findOne({userName,profile});
             if(!dbResult){
                 next(createError(400,'No user Exist'))
                 return;
