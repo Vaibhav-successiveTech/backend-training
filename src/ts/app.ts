@@ -1,11 +1,10 @@
 const express = require('express');
-import type { Request, Response } from 'express';
+import { Request, Response } from 'express';
+import mockList from './mockData';
 
 const PORT = 3001;
 
 const app = express();
-
-const mockList: { id: number; name: string }[] = require('./mockData');
 
 app.get('/', (req: Request, res: Response) => {
     res.json(mockList);
