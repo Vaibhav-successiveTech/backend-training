@@ -1,7 +1,6 @@
 const express = require('express');
 import mongoose from 'mongoose';
 import UserRouter from './routes/user';
-import { NextFunction, Request, Response } from 'express';
 
 const app = express();
 app.use(express.json());
@@ -12,7 +11,7 @@ const db = mongoose.connection;
 
 db.once('open', () => console.log('MongoDB connected'));
 
-app.use((err:Error,req:Request,res:Response,next:NextFunction)=>{
+app.use((err,req,res,next)=>{
     if(err){
         res.status(400).json({
             message : err.message
