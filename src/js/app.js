@@ -7,10 +7,10 @@ const app = express();
 app.use(express.json());
 app.use(AllRouter);
 
-app.get('/errorHandler',errorMiddlewareHandlerObject.errorMiddlewareHandler);
+app.get('/errorHandler', errorMiddlewareHandlerObject.errorMiddlewareHandler);
 
 app.use(errorMiddlewareObject.errorMiddleware);
 
-app.listen(3001,()=>{
+app.listen(3001, () => {
     console.log('listening on url : https://localhost:3001');
 });
