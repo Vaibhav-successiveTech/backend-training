@@ -36,8 +36,8 @@ rl.question('Enter first Number : ', (n1: string) => {
             return str;
         }).join('\n');
 
-
-        const res = fs.writeFile('./result.csv', csvContent, (err) => {
+            
+        fs.writeFile('./result.csv', csvContent, (err) => {
             if (err) {
                 console.log('error occured ', err);
                 return;
