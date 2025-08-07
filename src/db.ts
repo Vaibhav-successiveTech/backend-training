@@ -1,5 +1,8 @@
 import mongoose from 'mongoose';
 import OrderModel from './models/sampleData';
+import dotenv from 'dotenv';
+dotenv.config();
+
 const fakeOrders = [
   {
     orderId: "ORD001",
@@ -223,20 +226,24 @@ const fakeOrders = [
   }
 ];
 
+const URL = process.env.MONGO_URL;
+
 const connectDB = async () => {
-    try {
-        await mongoose.connect(`mongodb://localhost:27017/Orders`);
-        console.log('Connected to DB');
-        const total = await OrderModel.find();
-        if (total.length == 0) {
-            fakeOrders.map(async (i)=>{
-                const newOrder = new OrderModel(i);
-                await newOrder.save()
-            })
-        }
-    } catch (err) {
-        console.log(err);
+  try {
+    await mongoose.connect(URL || '');
+    console.log('Connected to DB');
+    const total = await OrderModel.find();
+    if (total.length == 0) {
+      await Promise.all(
+        fakeOrders.map(async (i) => {
+          const newOrder = new OrderModel(i);
+          await newOrder.save()
+        })
+      )
     }
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 export default connectDB;
