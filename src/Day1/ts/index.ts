@@ -1,6 +1,6 @@
 import { add, sub, mult, div } from './lib/math';
 import readline from 'readline';
-import fs from 'fs';
+import {promises as fs} from 'fs';
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -15,6 +15,15 @@ const Format = (num1: number, num2: number): String[][] => {
         ['Multiply', String(num1), String(num2), String(mult(num1, num2))],
         ['Divide', String(num1), String(num2), String(div(num1, num2))],
     ]
+}
+
+const writeFunc = async (csvContent : string)=>{
+     try {
+        await fs.writeFile('./src/Day1/ts/result.csv', csvContent);
+        console.log('Writing Data Successful');
+    } catch (err) {
+        console.log('error occurred', err);
+    }
 }
 
 rl.question('Enter first Number : ', (n1: string) => {
@@ -36,14 +45,7 @@ rl.question('Enter first Number : ', (n1: string) => {
             return str;
         }).join('\n');
 
-            
-        fs.writeFile('./src/Day1/ts/result.csv', csvContent, (err) => {
-            if (err) {
-                console.log('error occured ', err);
-                return;
-            }
-        })
-        console.log('Writing Data Successful');
+        writeFunc(csvContent);
 
         rl.close();
     })

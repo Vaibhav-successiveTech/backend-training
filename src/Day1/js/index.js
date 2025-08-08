@@ -1,6 +1,6 @@
 import { add, sub, mult, div } from './lib/math.js';
 import readline from 'readline';
-import fs from 'fs';
+import {promises as fs} from 'fs';
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -17,6 +17,15 @@ const Format = (num1, num2) => {
     ]
 }
 
+const writeFunc = async (csvContent)=>{
+     try {
+        await fs.writeFile('./src/Day1/ts/result.csv', csvContent);
+        console.log('Writing Data Successful');
+    } catch (err) {
+        console.log('error occurred', err);
+    }
+}
+
 rl.question('Enter First Number ', (n1) => {
     rl.question('Enter Second Number ', (n2) => {
         const num1 = Number(n1);
@@ -29,13 +38,7 @@ rl.question('Enter First Number ', (n1) => {
 
         const result = Format(num1,num2);
         const csvContent = result.map((i)=>i.join(',')).join('\n');
-        fs.writeFile('./src/Day1/js/result.csv',csvContent,(err)=>{
-            if(err){
-                console.log('error occured ',err);
-                return;
-            }
-            console.log('Writing Data Successful');
-        })
+        writeFunc(csvContent);
         rl.close();
 
     })
