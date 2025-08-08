@@ -8,8 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/index.js",
     "build": "tsc",
-    "dev:Day1": "nodemon --config ./src/Day1/nodemon.json"
-
+    "dev:Day1": "nodemon --config ./src/Day1/nodemon.json",
+    "dev:mongoDb": "nodemon --config ./src/mongoDb/nodemon.json"
   },
   "devDependencies": {
     "@types/node": "^24.0.13",
