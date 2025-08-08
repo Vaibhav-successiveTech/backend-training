@@ -13,7 +13,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/index.js",
     "build": "tsc",
-    "dev": "nodemon"
+    "dev:Day11": "nodemon --config ./src/Day11/nodemon.json"
   },
   "devDependencies": {
     "@types/bcrypt": "^6.0.0",
