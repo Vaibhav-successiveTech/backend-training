@@ -3,7 +3,7 @@ import mockList from './mockdata';
 
 const app = express();
 
-app.get((req,res)=>{
+app.get('/',(req,res)=>{
     res.send(mockList);
 })
 
