@@ -2,7 +2,7 @@ import { errorMiddlewareHandlerObject } from './controllers/OtherController';
 import { errorMiddlewareObject } from './middleware/errorHandler';
 import AllRouter from './routes/Allroutes';
 
-const express = require('express');
+import express from 'express';
 const app = express();
 app.use(express.json());
 app.use(AllRouter);
