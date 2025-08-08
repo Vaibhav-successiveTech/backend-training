@@ -2,12 +2,14 @@ import mongoose from "mongoose";
 import UserRoutes from "./routes/userRoutes";
 import { NextFunction, Request, Response } from "express";
 import { HeaderSecurity } from "./middleware/securityheader";
+import express from "express";
 
-const express = require("express");
 const app = express();
 app.use(express.json());
 
-HeaderSecurity.apply(app);
+const security = new HeaderSecurity();
+
+app.use(security.HelmetSecurity);
 
 mongoose.connect('mongodb://localhost:27017/userPage');
 const db = mongoose.connection;
