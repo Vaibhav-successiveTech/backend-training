@@ -1,15 +1,16 @@
 {
   "dependencies": {
+    "express": "^5.1.0",
     "nodemon": "^3.1.10"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/index.js",
     "build": "tsc",
-    "dev": "nodemon"
-
+    "dev:Day7": "nodemon --config ./src/Day7/nodemon.json"
   },
   "devDependencies": {
+    "@types/express": "^5.0.3",
     "@types/node": "^24.0.13",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
