@@ -8,6 +8,6 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "include": ["src"],
+  "include": ["src/Day5"],
   "exclude": ["node_modules"]
 }
