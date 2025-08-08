@@ -2,12 +2,12 @@
   "compilerOptions": {
     "target": "ES2020",
     "module": "commonjs",
-    "rootDir": "Day4/src",
+    "rootDir": "./src",
     "outDir": "./dist",
     "esModuleInterop": true,
     "strict": true,
     "skipLibCheck": true
   },
-  "include": ["Day4/src","Day4/src/ts/app.ts"],
+  "include": ["src","src/ts/app.ts"],
   "exclude": ["node_modules"]
 }

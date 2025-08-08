@@ -1,4 +1,4 @@
-const express = require('express');
+import express from 'express';
 const app = express();
 import { validateUserObject } from "./middleware/middleware";
 import { RegistrationMiddlewareObject } from "./middleware/FormValidation";
