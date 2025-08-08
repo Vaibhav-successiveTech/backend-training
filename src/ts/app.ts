@@ -1,6 +1,9 @@
 const express = require('express');
 import { Request, Response } from 'express';
 import mockList from './mockData';
+import connectDB from "../db";
+
+connectDB();
 
 const PORT = 3001;
 
