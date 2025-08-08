@@ -12,6 +12,8 @@
 
     "strict": true
 
-  }
+  },
+  "include": ["src/Day8"],
+  "exclude": ["node_modules"]
 
 }
