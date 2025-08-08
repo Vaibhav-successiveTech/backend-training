@@ -1,4 +1,4 @@
-const express = require('express');
+import * as express from 'express';
 import {Request, Response} from 'express';
 import mongoose from 'mongoose';
 import ListServiceObject from './services/list';
