@@ -1,0 +1,5 @@
+Operation, operand1, operand2, Result
+Add, 13, 13, 26
+Subtract, 13, 13, 0
+Multiply, 13, 13, 169
+Divide, 13, 13, 1

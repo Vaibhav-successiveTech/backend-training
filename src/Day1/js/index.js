@@ -29,7 +29,7 @@ rl.question('Enter First Number ', (n1) => {
 
         const result = Format(num1,num2);
         const csvContent = result.map((i)=>i.join(',')).join('\n');
-        fs.writeFile('./result.csv',csvContent,(err)=>{
+        fs.writeFile('./src/Day1/js/result.csv',csvContent,(err)=>{
             if(err){
                 console.log('error occured ',err);
                 return;

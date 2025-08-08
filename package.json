@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/index.js",
     "build": "tsc",
-    "dev": "ts-node src/ts/index.ts"
+    "dev:Day1": "nodemon --config ./src/Day1/nodemon.json"
 
   },
   "devDependencies": {
