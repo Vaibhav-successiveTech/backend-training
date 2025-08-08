@@ -8,6 +8,6 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "include": ["src","src/ts/app.ts"],
+  "include": ["src/Day3","src/Day3/ts/app.ts"],
   "exclude": ["node_modules"]
 }
