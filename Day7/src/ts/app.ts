@@ -1,6 +1,6 @@
 import healthCheckObject from "./healthCheck";
 
-const express = require('express');
+import express from 'express';
 const app = express();
 
 app.get('/health',healthCheckObject.healthCheckMiddleware);
