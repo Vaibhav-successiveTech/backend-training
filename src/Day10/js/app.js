@@ -1,11 +1,14 @@
 import mongoose from "mongoose";
 import UserRoutes from "./routes/userRoutes";
+import express from "express";
+import dotenv from 'dotenv';
+dotenv.config();
 
-const express = require("express");
 const app = express();
 app.use(express.json());
 
-mongoose.connect('mongodb://localhost:27017/userPage');
+const URL = process.env.mongoURL;
+mongoose.connect(URL);
 const db = mongoose.connection;
 
 db.once('open', () => console.log('Mongoose Connected'));
@@ -18,6 +21,7 @@ app.use((err, req, res, next) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log('listening on https://localhost:3000');
+const PORT = process.env.PORT
+app.listen(PORT, () => {
+    console.log(`listening on https://localhost:${PORT}`);
 })
