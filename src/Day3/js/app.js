@@ -1,6 +1,8 @@
 import { errorMiddlewareHandlerObject } from './controllers/OtherController';
 import { errorMiddlewareObject } from './middleware/errorHandler';
 import AllRouter from './routes/Allroutes';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const express = require('express');
 const app = express();
@@ -11,6 +13,8 @@ app.get('/errorHandler', errorMiddlewareHandlerObject.errorMiddlewareHandler);
 
 app.use(errorMiddlewareObject.errorMiddleware);
 
-app.listen(3001, () => {
-    console.log('listening on url : https://localhost:3001');
+const PORT = process.env.PORT;
+
+app.listen(PORT, () => {
+    console.log(`listening on url : https://localhost:${PORT}`);
 });
