@@ -3,6 +3,8 @@ import UserRoutes from "./routes/userRoutes";
 import { NextFunction, Request, Response } from "express";
 import { HeaderSecurity } from "./middleware/securityheader";
 import express from "express";
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
 app.use(express.json());
@@ -11,7 +13,8 @@ const security = new HeaderSecurity();
 
 app.use(security.HelmetSecurity);
 
-mongoose.connect('mongodb://localhost:27017/userPage');
+const URL = process.env.mongoURL
+mongoose.connect(URL||'');
 const db = mongoose.connection;
 
 db.once('open', () => console.log('Mongoose Connected'));
@@ -24,6 +27,7 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log('listening on https://localhost:3000');
+const PORT = process.env.PORT
+app.listen(PORT, () => {
+    console.log(`listening on https://localhost:${PORT}`);
 })
