@@ -1,15 +1,10 @@
-import express from 'express';
-import mockList from './mockdata';
-import dotenv from 'dotenv';
-dotenv.config();
+const mockList = [
+    {id:0,name:'John'},
+    {id:1,name:'Rudy'},
+    {id:2,name:'Tony'},
+    {id:3,name:'John Doe'},
+    {id:4,name:'Ben'},
+    {id:5,name:'Borne'},
+]
 
-const app = express();
-
-app.get('/',(req,res)=>{
-    res.send(mockList);
-})
-
-const PORT = process.env.PORT
-app.listen(PORT,()=>{
-    console.log(`Server Listening on http://localhost:${PORT}`);
-})
+export default mockList;
