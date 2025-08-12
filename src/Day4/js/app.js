@@ -6,8 +6,10 @@ import { Request, Response } from 'express';
 import { validateParamsObject } from "./middleware/routeValidation";
 import { validateLocationObject } from "./middleware/validateLocation";
 import { dynamicValidationMiddlewareObject } from "./middleware/dynamicValidation";
+import dotenv from 'dotenv'
 
 app.use(express.json());
+dotenv.config();
 //app.use(validateUser);
 
 
@@ -42,6 +44,7 @@ app.get('/api/product',dynamicValidationMiddlewareObject.dynamicValidationMiddle
     })
 })
 
-app.listen(3001, () => {
-    console.log('Server listening on https://localhost:3001');
+const PORT = process.env.PORT;
+app.listen(PORT, () => {
+    console.log(`Server listening on https://localhost:${PORT}`);
 })
