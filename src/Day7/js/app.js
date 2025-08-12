@@ -1,10 +1,14 @@
 import healthCheckObject from "./healthCheck";
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const express = require('express');
 const app = express();
 
 app.get('/health',healthCheckObject.healthCheckMiddleware);
 
-app.listen(3005,()=>{
-    console.log('listening on url https://localhost:3005');
+const PORT = process.env.PORT;
+app.listen(PORT,()=>{
+    console.log(`listening on url https://localhost:${PORT}`);
 })
