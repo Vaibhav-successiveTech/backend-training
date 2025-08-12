@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-const URL = process.env.mongoURL
+const URL = process.env.mongoURLDay8
 mongoose.connect(URL|| '');
 const db = mongoose.connection;
 
