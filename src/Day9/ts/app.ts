@@ -2,12 +2,16 @@ const express = require('express');
 import mongoose from 'mongoose';
 import UserRouter from './routes/user';
 import { NextFunction, Request, Response } from 'express';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
 app.use(express.json());
 app.use(UserRouter);
 
-mongoose.connect('mongodb://localhost:27017/successive-db');
+const URL = process.env.mongoURL;
+
+mongoose.connect(URL||'');
 const db = mongoose.connection;
 
 db.once('open', () => console.log('MongoDB connected'));
@@ -20,6 +24,7 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     }
 })
 
-app.listen(3000, () => {
-    console.log('listening on url https://localhost:3000');
+const PORT = process.env.PORT;
+app.listen(PORT, () => {
+    console.log(`listening on url https://localhost:${PORT}`);
 })
