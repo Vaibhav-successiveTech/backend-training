@@ -1,4 +1,4 @@
-const express = require('express');
+import express from 'express';
 import mongoose from 'mongoose';
 import UserRouter from './routes/user';
 import dotenv from 'dotenv';
