@@ -3,8 +3,10 @@
     "axios": "^1.10.0",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
-    "nodemon": "^3.1.10",
-    "zod": "^4.0.5"
+    "zod": "^4.0.5",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.17.0",
+    "nodemon": "^3.1.10"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,9 +15,14 @@
     "dev:Day4": "nodemon --config ./src/Day4/nodemon.json"
   },
   "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.10",
+     "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
     "@types/express": "^5.0.3",
     "@types/node": "^24.0.13",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.8.3"
+    "dev:Day2": "nodemon --config ./src/Day2/nodemon.json",
+    "dev:Day1": "nodemon --config ./src/Day1/nodemon.json",
+    "dev:Day3": "nodemon --config ./src/Day3/nodemon.json",
+    "dev:mongoDb": "nodemon --config ./src/mongoDb/nodemon.json"
   }
 }
