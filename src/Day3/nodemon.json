@@ -2,13 +2,9 @@
   "watch": ["src"],
   "ext": "ts,json",
   "ignore": ["dist"],
-<<<<<<< HEAD:src/mongoDb/nodemon.json
 <<<<<<< HEAD:src/Day3/nodemon.json
   "exec": "ts-node ./src/Day3/ts/app.ts"
 =======
   "exec": "ts-node ./src/mongoDb/app.ts"
 >>>>>>> develop:src/mongoDb/nodemon.json
-=======
-  "exec": "ts-node ./src/Day2/ts/app.ts"
->>>>>>> develop:src/Day2/nodemon.json
 }
