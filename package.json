@@ -12,6 +12,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/index.js",
     "build": "tsc",
+    "dev:Day7": "nodemon --config ./src/Day7/nodemon.json",
     "dev:Day2": "nodemon --config ./src/Day2/nodemon.json",
     "dev:Day1": "nodemon --config ./src/Day1/nodemon.json",
     "dev:Day3": "nodemon --config ./src/Day3/nodemon.json",
