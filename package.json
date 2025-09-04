@@ -12,17 +12,17 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/index.js",
     "build": "tsc",
-    "dev:Day4": "nodemon --config ./src/Day4/nodemon.json"
+    "dev:Day4": "nodemon --config ./src/Day4/nodemon.json",
+    "dev:Day2": "nodemon --config ./src/Day2/nodemon.json",
+    "dev:Day1": "nodemon --config ./src/Day1/nodemon.json",
+    "dev:Day3": "nodemon --config ./src/Day3/nodemon.json",
+    "dev:mongoDb": "nodemon --config ./src/mongoDb/nodemon.json"
   },
   "devDependencies": {
     "@types/jsonwebtoken": "^9.0.10",
      "ts-node": "^10.9.2",
     "typescript": "^5.8.3",
     "@types/express": "^5.0.3",
-    "@types/node": "^24.0.13",
-    "dev:Day2": "nodemon --config ./src/Day2/nodemon.json",
-    "dev:Day1": "nodemon --config ./src/Day1/nodemon.json",
-    "dev:Day3": "nodemon --config ./src/Day3/nodemon.json",
-    "dev:mongoDb": "nodemon --config ./src/mongoDb/nodemon.json"
+    "@types/node": "^24.0.13"
   }
 }
