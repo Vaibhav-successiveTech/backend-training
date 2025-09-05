@@ -13,7 +13,7 @@
     "strict": true
 
   },
-  "include": ["src/Day8"],
+  "include": ["src/Day4","src/Day4/ts/app.ts","src/Day3","src/Day3/ts/app.ts","src/Day5","src/Day8"],
   "exclude": ["node_modules"]
 
 }
