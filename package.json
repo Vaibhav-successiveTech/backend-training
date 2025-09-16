@@ -1,16 +1,17 @@
 {
   "dependencies": {
-    "body-parser": "^2.2.0",
+    "express": "^5.1.0",
     "zod": "^4.0.5",
+    "body-parser": "^2.2.0",
     "axios": "^1.10.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.17.0",
     "nodemon": "^3.1.10"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/index.js",
     "build": "tsc",
+    "dev:Day9": "nodemon --config ./src/Day9/nodemon.json",
     "dev:Day8": "nodemon --config ./src/Day8/nodemon.json",
     "dev:Day7": "nodemon --config ./src/Day7/nodemon.json",
     "dev:Day2": "nodemon --config ./src/Day2/nodemon.json",
