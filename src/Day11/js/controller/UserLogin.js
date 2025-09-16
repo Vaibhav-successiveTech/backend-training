@@ -1,7 +1,5 @@
-import {Request,Response} from 'express';
-
 class UserLoginControllerClass {
-    UserLogin = (req:Request,res:Response)=>{
+    UserLogin = (req,res)=>{
         res.status(200).json({
             message : `Welcome ${req.body.result.profile}`,
             result : req.body.result

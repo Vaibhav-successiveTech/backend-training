@@ -1,7 +1,5 @@
-import {Request, Response} from 'express';
-
 class UserSignupControllerClass {
-    UserSignup = (req:Request,res:Response)=>{
+    UserSignup = (req,res)=>{
         const pro = req.body.result.profile;
         res.status(201).json({message:`${pro} Created`,...req.body.result})
     }
