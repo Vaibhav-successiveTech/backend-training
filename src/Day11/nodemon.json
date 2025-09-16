@@ -1,0 +1,10 @@
+{
+  "watch": ["src"],
+  "ext": "ts,json",
+  "ignore": ["dist"],
+<<<<<<< HEAD:src/Day11/nodemon.json
+  "exec": "ts-node ./src/Day11/ts/app.ts"
+=======
+  "exec": "ts-node ./src/Day4/ts/app.ts"
+>>>>>>> Day10:src/Day4/nodemon.json
+}

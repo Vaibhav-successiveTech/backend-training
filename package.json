@@ -9,22 +9,33 @@
     "nodemon": "^3.1.10",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",
-    "zod": "^4.0.8"
+    "body-parser": "^2.2.0",
+    "axios": "^1.10.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/index.js",
     "build": "tsc",
-    "dev:Day12": "nodemon --config ./src/Day12/nodemon.json"
+    "dev:Day12": "nodemon --config ./src/Day12/nodemon.json",
+    "dev:Day11": "nodemon --config ./src/Day11/nodemon.json",
+    "dev:Day10": "nodemon --config ./src/Day10/nodemon.json",
+    "dev:Day9": "nodemon --config ./src/Day9/nodemon.json",
+    "dev:Day8": "nodemon --config ./src/Day8/nodemon.json",
+    "dev:Day7": "nodemon --config ./src/Day7/nodemon.json",
+    "dev:Day2": "nodemon --config ./src/Day2/nodemon.json",
+    "dev:Day1": "nodemon --config ./src/Day1/nodemon.json",
+    "dev:Day3": "nodemon --config ./src/Day3/nodemon.json",
+    "dev:mongoDb": "nodemon --config ./src/mongoDb/nodemon.json",
+    "dev:Day4": "nodemon --config ./src/Day4/nodemon.json",
+    "dev:Day5": "nodemon --config ./src/Day5/nodemon.json"
   },
   "devDependencies": {
     "@types/bcrypt": "^6.0.0",
-    "@types/express": "^5.0.3",
-    "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^24.0.13",
     "@types/swagger-jsdoc": "^6.0.4",
     "@types/swagger-ui-express": "^4.1.8",
     "ts-node": "^10.9.2",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "nodemon": "^3.1.10",
+    "@types/jsonwebtoken": "^9.0.10"
   }
 }
